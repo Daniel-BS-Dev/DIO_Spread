@@ -1,13 +1,13 @@
-package com.DIO_Spread.no;
+package com.dio.spread.entities;
 
 public class No {
 	
 	private String message;
-	private No next;
+	private No nextNo;
 	
 	public No(String message) {
 		this.message = message;
-		this.next = null;
+		this.nextNo = null;
 	}
 
 	public String getMessage() {
@@ -18,17 +18,17 @@ public class No {
 		this.message = message;
 	}
 
-	public No getNext() {
-		return next;
+	public No getNextNo() {
+		return nextNo;
 	}
 
-	public void setNext(No next) {
-		this.next = next;
+	public void setNextNo(No nextNo) {
+		this.nextNo = nextNo;
 	}
 
 	@Override
 	public String toString() {
-		return "No message=" + message + "";
+		return "No [message=" + message + "]";
 	}
 	
 	
