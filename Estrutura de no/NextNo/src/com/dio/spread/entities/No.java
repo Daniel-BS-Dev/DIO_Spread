@@ -1,28 +1,29 @@
 package com.dio.spread.entities;
 
-public class No {
+public class No<T> {
 	
-	private String message;
+	
+	private T message;
 	private No nextNo;
 	
-	public No(String message) {
+	public No(T message) {
 		this.message = message;
 		this.nextNo = null;
 	}
 
-	public String getMessage() {
+	public T getMessage() {
 		return message;
 	}
 
-	public void setMessage(String message) {
+	public void setMessage(T message) {
 		this.message = message;
 	}
 
-	public No getNextNo() {
+	public No<T> getNextNo() {
 		return nextNo;
 	}
 
-	public void setNextNo(No nextNo) {
+	public void setNextNo(No<T> nextNo) {
 		this.nextNo = nextNo;
 	}
 
