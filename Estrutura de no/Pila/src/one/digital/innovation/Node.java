@@ -21,7 +21,7 @@ public class Node {
 		return referenceNodeNext;
 	}
 
-	public void setReferenceNodeNext(Node referenceNoNext) {
+	public void setReferenceNodeNext(Node referenceNodeNext) {
 		this.referenceNodeNext = referenceNodeNext;
 	}
 
