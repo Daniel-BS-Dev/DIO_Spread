@@ -1,21 +1,23 @@
 package dio.com.entities;
 
-public class Queue {
+public class Queue<T> {
 	
-	private Node referenceQueue;
+	private Node<T> referenceQueue;
 
 	public Queue() {
 		this.referenceQueue = null;
 	}
 	
 	// enfileira
-	public void enqueue(Node newNode) {
+	public void enqueue(T object) {
+		Node newNode = new Node(object);
 		newNode.setReferenceNode(referenceQueue);
 		referenceQueue = newNode;
 	}
 	
 	// primeiro da fila
-	public Node first() {
+	@SuppressWarnings("unchecked")
+	public T first() {
 		if(!this.isEmpty()) {
 			Node firstNode = referenceQueue;
 			while(true) {
@@ -26,14 +28,15 @@ public class Queue {
 				}
 			}
 			
-			return firstNode;
+			return (T) firstNode.getObject();
 		}
 		return null;
 	}
 
 	
 	// retorna o primeiro da fila e retira da fila
-	public Node dequeue() {
+	@SuppressWarnings("unchecked")
+	public T dequeue() {
 		if(!this.isEmpty()) {
 			Node firstNode = referenceQueue;
 			Node noAux = referenceQueue;
@@ -46,7 +49,7 @@ public class Queue {
 					break;
 				}
 			}
-			return firstNode;
+			return (T) firstNode.getObject();
 		}
 		return null;
 	}

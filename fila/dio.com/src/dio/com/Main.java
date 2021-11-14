@@ -7,14 +7,14 @@ public class Main {
 	
 	public static void main(String[] args) {
 		
-		Queue myQueue = new Queue();
+		Queue<String> myQueue = new Queue<>();
 		
-		myQueue.enqueue(new Node("First"));
-		myQueue.enqueue(new Node("Second"));
-		myQueue.enqueue(new Node("third"));
-		myQueue.enqueue(new Node("Fourth"));
-		myQueue.enqueue(new Node("Fifth"));
-		myQueue.enqueue(new Node("Sexth"));
+		myQueue.enqueue("First");
+		myQueue.enqueue("Second");
+		myQueue.enqueue("third");
+		myQueue.enqueue("Fourth");
+		myQueue.enqueue("Fifth");
+		myQueue.enqueue("Sexth");
 		
 		System.out.println(myQueue);
 		

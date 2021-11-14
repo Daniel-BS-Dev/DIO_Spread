@@ -1,15 +1,15 @@
 package dio.com.entities;
 
-public class Node {
+public class Node<T> {
 	
-	private Object object;
-	private Node referenceNode;
+	private T object;
+	private Node<T> referenceNode;
 	
 	public Node() {
 	
 	}
 
-	public Node(Object object) {
+	public Node(T object) {
 		this.object = object;
 		this.referenceNode = null;
 	}
@@ -18,7 +18,7 @@ public class Node {
 		return object;
 	}
 
-	public void setObject(Object object) {
+	public void setObject(T object) {
 		this.object = object;
 	}
 
