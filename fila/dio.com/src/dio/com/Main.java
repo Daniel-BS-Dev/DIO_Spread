@@ -1,6 +1,5 @@
 package dio.com;
 
-import dio.com.entities.Node;
 import dio.com.entities.Queue;
 
 public class Main {
