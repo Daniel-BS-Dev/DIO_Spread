@@ -13,6 +13,24 @@ public class DoublyChainList<T> {
 		this.sizeList = 0;
 	}
 	
+	public void remove(int index) {
+		if(index == 0) {
+			firstNode = firstNode.getNextNode();
+		    if(firstNode != null) {
+		    	firstNode.setPreviousNode(null);
+		    }
+		}else {
+			DoubleNode<T> auxNode = getNode(index);
+			auxNode.getPreviousNode().setNextNode(auxNode.getNextNode());
+			if(auxNode != lastNode) {
+				auxNode.getNextNode().setPreviousNode(auxNode.getNextNode());
+			}else {
+				lastNode = auxNode;
+			}
+		}
+		this.sizeList--;
+	}
+	
 	public void add(int index, T element) {
 		DoubleNode<T> auxNode = getNode(index);
 		DoubleNode<T> newNode = new DoubleNode<>(element);
@@ -32,7 +50,7 @@ public class DoublyChainList<T> {
 			newNode.getPreviousNode().setNextNode(newNode);;
 			
 		}
-		sizeList++;
+		this.sizeList++;
 	}
 	
 	public void add(T element) {
@@ -68,5 +86,21 @@ public class DoublyChainList<T> {
 		
 		return auxNode;
 	}
+
+	@Override
+	public String toString() {
+		String strReturn = "";
+		
+		DoubleNode<T> auxNode = firstNode;
+		
+		for(int i =0; i<size(); i++) {
+			strReturn += "node "+ auxNode+" -->";
+			auxNode = auxNode.getNextNode();
+		}
+		strReturn += "null";
+		return strReturn;
+	}
+	
+	
 
 }
