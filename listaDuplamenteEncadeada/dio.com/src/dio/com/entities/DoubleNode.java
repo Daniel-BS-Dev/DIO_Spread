@@ -36,7 +36,7 @@ public class DoubleNode<T> {
 
 	@Override
 	public String toString() {
-		return "DoubleNode [content=" + content + "]";
+		return ""+content;
 	}
 	
 	

@@ -94,7 +94,7 @@ public class DoublyChainList<T> {
 		DoubleNode<T> auxNode = firstNode;
 		
 		for(int i =0; i<size(); i++) {
-			strReturn += "node "+ auxNode+" -->";
+			strReturn += "node "+ auxNode+" --> ";
 			auxNode = auxNode.getNextNode();
 		}
 		strReturn += "null";
