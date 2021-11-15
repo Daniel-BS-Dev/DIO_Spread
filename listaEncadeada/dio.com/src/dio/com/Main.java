@@ -6,10 +6,24 @@ public class Main {
 	
 	public static void main(String[] args) {
 		
-	   ChainList<String> chainList = new ChainList<>();
+	   ChainList<String> myChainList = new ChainList<>();
 	   
-	   chainList.add("first");
-	   chainList.add("first");
+	   myChainList.add("first");
+	   myChainList.add("Second");
+	   myChainList.add("Third");
+	   myChainList.add("Fourth");
+	   
+	   
+	   System.out.println(myChainList.get(0));
+	   System.out.println(myChainList.get(1));
+	   System.out.println(myChainList.get(2));
+	   System.out.println(myChainList.get(3));
+	   
+	   System.out.println(myChainList.toString());
+	   
+	   System.out.println(myChainList.remove(3));
+	   
+	   System.out.println(myChainList.toString());
 		
 	}
 

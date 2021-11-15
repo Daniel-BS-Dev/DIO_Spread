@@ -46,7 +46,7 @@ public class ChainList<T> {
 		Node<T> nodeAux = inputReference;
 		Node<T> nodeReturn = null;
 		
-		for(int i=0; i< this.size()-1; i++) {
+		for(int i=0; i<= index; i++) {
 			nodeReturn = nodeAux;
 			nodeAux = nodeAux.getNextNode();
 		}
@@ -83,4 +83,19 @@ public class ChainList<T> {
 	public boolean isEmpty() {
 		return inputReference == null ? true : false;
 	}
+
+	@Override
+	public String toString() {
+		String strReturn = "";
+		Node<T> nodeAux = inputReference;
+		
+		for(int i=0; i<=this.size()-1; i++) {
+			strReturn += "Node "+nodeAux.getNextNode()+"--->";
+			nodeAux = nodeAux.getNextNode();
+		}
+		strReturn += "null";
+		return strReturn;
+	}
+	
+	
 }
