@@ -37,4 +37,24 @@ public class CircularList<T> {
 	public T get(int index){
 		return this.getNode(index).getContent();
 	}
+	
+	public void remove(int index) {
+		if(index >= this.sizeList) 
+			throw new IndexOutOfBoundsException("A lista esta vazia");
+		
+		Node<T> auxNode = tail;
+		
+		if(index == 0) {
+			this.tail = this.tail.getNextNode();
+			this.head.setNextNode(this.tail);
+		}else if(index == 1) {
+			this.tail.setNextNode(this.tail.getNextNode().getNextNode());
+		}else {
+			for(int i=0; i < index; i++) {
+				auxNode = auxNode.getNextNode();
+			}
+			
+			auxNode.setNextNode(auxNode.getNextNode().getNextNode());
+		}
+	}
 }
