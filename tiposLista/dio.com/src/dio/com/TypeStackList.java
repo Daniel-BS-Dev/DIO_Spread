@@ -4,7 +4,7 @@ import java.util.Stack;
 
 import dio.com.entities.Car;
 
-public class Main {
+public class TypeStackList {
 	
 	public static void main(String[] args) {
 		
