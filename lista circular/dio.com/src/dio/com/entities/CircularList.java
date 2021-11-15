@@ -57,4 +57,21 @@ public class CircularList<T> {
 			auxNode.setNextNode(auxNode.getNextNode().getNextNode());
 		}
 	}
+	
+	public void add(T content) {
+		Node<T> newNode = new Node<>(content);
+		if(this.sizeList == 0) {
+			this.head = newNode;
+			this.tail = this.head;
+			this.head.setNextNode(tail);
+		}else {
+			newNode.setNextNode(this.tail);
+			this.head.setNextNode(newNode);
+			this.tail = newNode;
+		}
+		
+		this.sizeList++;
+	}
+	
+	
 }
