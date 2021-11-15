@@ -56,6 +56,8 @@ public class CircularList<T> {
 			
 			auxNode.setNextNode(auxNode.getNextNode().getNextNode());
 		}
+		
+		this.sizeList--;
 	}
 	
 	public void add(T content) {
@@ -71,6 +73,20 @@ public class CircularList<T> {
 		}
 		
 		this.sizeList++;
+	}
+
+	@Override
+	public String toString() {
+		String strReturn = " ";
+		
+		Node<T> auxNode = this.tail;
+		
+		for(int i=0; i < this.size(); i++) {
+			strReturn += "Node "+ auxNode.getContent() + " -->";
+			auxNode = auxNode.getNextNode();
+		}
+		strReturn += this.size() != 0 ? "(Retorn ao inicio)" : "[]";
+		return strReturn;
 	}
 	
 	
