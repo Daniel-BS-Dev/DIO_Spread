@@ -65,6 +65,88 @@ public class BinaryTree<T extends Comparable<T>> {
 		System.out.println("\n Exibindo pre ordem ");
 		showPreOrder(this.root);
 	}
+	
+	public void remove(T content) {
+		try {
+			BinaryNode<T> currentNode = this.root;
+			BinaryNode<T> fatherNode = null;
+			BinaryNode<T> childNode = null;
+			BinaryNode<T> temporaryNode = null;
+			
+			while(currentNode != null && !currentNode.getContent().equals(content)) {
+				fatherNode = currentNode;
+				if(content.compareTo(currentNode.getContent()) < 0) {
+					currentNode = currentNode.getLeftNode();
+				}else {
+					currentNode = currentNode.getRightNode();
+				}
+			}
+			
+			if(currentNode == null) {
+				System.out.println("Conteudo não encontrado. bloco try");
+			}
+			
+			if(fatherNode == null) {
+				if(currentNode.getRightNode() == null) {
+					this.root = currentNode.getLeftNode();
+				}else if(currentNode.getLeftNode() == null){
+					this.root = currentNode.getRightNode();
+				}else {
+					for(temporaryNode = currentNode, childNode = currentNode.getLeftNode();
+							childNode.getRightNode() != null;
+							temporaryNode =childNode, childNode = childNode.getLeftNode()
+							) {
+						
+						if(childNode != currentNode.getLeftNode()) {
+							temporaryNode.setRightNode(childNode.getLeftNode());
+							childNode.setLeftNode(root.getLeftNode());
+						}
+						
+					}
+					childNode.setRightNode(root.getRightNode());
+					root = childNode;
+				}
+				
+			}else if(currentNode.getRightNode() == null) {
+				if(fatherNode.getLeftNode() == currentNode) {
+					fatherNode.setLeftNode(currentNode.getLeftNode());
+				}else {
+					fatherNode.setRightNode(currentNode.getLeftNode());
+				}
+				
+			}else if(currentNode.getLeftNode() == null) {
+				if(fatherNode.getLeftNode() == currentNode) {
+					fatherNode.setLeftNode(currentNode.getRightNode());
+				}else {
+					fatherNode.setRightNode(currentNode.getRightNode());
+				}
+				
+			}else {
+				for(
+						temporaryNode = currentNode, childNode = currentNode.getLeftNode();
+						childNode.getRightNode() != null;
+						temporaryNode = childNode, childNode = childNode.getRightNode()
+						) {
+					
+					if(childNode != currentNode.getLeftNode()) {
+						temporaryNode.setRightNode(childNode.getLeftNode());
+						childNode.setLeftNode(currentNode.getLeftNode());
+					}
+					childNode.setRightNode(currentNode.getRightNode());
+					if(fatherNode.getLeftNode() == currentNode) {
+						fatherNode.setLeftNode(childNode);
+					}else {
+						fatherNode.setRightNode(childNode);
+					}
+				}
+				
+			}
+			
+		}catch(NullPointerException erro) {
+			System.out.println("Conteudo não encontardoBloco Catch");
+		}
+	}
+	
 	@Override
 	public String toString() {
 		return "BinaryNode ";
